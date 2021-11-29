@@ -1,0 +1,16 @@
+{
+    "name": "mecanoapigateway",
+    "version": "1.0.0",
+    "description": "Manejo de solicitudes",
+    "main": "src/index",
+    "scripts": {},
+    "author": "Equipo 8 del Grupo 11 de Desarrollo Web",
+    "license": "ISC",
+    "dependencies": {
+        "apollo-datasource-rest": "^3.1.1",
+        "apollo-server": "^3.1.2",
+        "graphql": "^15.5.1",
+        "lodash": "^4.17.21",
+        "node-fetch": "^2.6.1"
+    }
+}
