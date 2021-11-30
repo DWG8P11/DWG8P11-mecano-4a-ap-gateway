@@ -28,10 +28,10 @@ const authTypeDefs = gql `
         usuario         : String!
         correo          : String!
         telefono        : Int!
-        pais            : String
-        departamento    : String
-        ciudad          : String
-        administrador   : String
+        pais            : String!
+        departamento    : String!
+        ciudad          : String!
+        administrador   : String!
     }
     type Mutation {
         registrarUsuario    (registroInput  : RegistroInp!)     : Token!
