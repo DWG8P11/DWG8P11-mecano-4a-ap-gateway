@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server');
-const authTypeDefs = gql `
+const usuariosTypeDefs = gql `
     type Token {
         refresh : String!
         access  : String!
