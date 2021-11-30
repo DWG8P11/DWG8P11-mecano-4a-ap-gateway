@@ -1,8 +1,23 @@
 const { gql } = require('apollo-server');
 
-// TODO Mejorar imagen... como entero64?
+// TODO Fecha...
 const puntajesTypeDefs = gql(`
+    type PuntajeIn {
+        usuario: String!
+        precision: Float!
+        cpme: Int!
+        segundos: Int!
+        fecha: String
+    }
 
+    type PuntajeOut {
+        id: String!
+        usuario: String!
+        precision: Float!
+        cpme: Int!
+        segundos: Int!
+        fecha: String
+    }
 
     extend type Query {
         traerPuntajes(usuario: String, idLeccion: String): [PuntajeOut!]!
