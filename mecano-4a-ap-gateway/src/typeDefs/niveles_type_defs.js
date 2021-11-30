@@ -1,7 +1,14 @@
 const { gql } = require('apollo-server');
 
+// TODO mejorar imagen
+// TODO mejorar eliminar en el back para que retorne el ID
 const nivelesTypeDefs = gql(`
-
+    type Nivel {
+        id: Int!
+        nombre: String!
+        descripcion: String
+        imagen: String
+    }
 
     extend type Query {
         traerNiveles: [Nivel!]!
