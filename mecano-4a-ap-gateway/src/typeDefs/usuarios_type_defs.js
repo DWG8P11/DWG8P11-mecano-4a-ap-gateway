@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server');
+
 const usuariosTypeDefs = gql(`
     type Token {
         refresh : String!
@@ -11,7 +12,7 @@ const usuariosTypeDefs = gql(`
         username: String!
         password: String!
     }
-    input RegistroInp {
+    input UsuarioIn {
         nombre      : String!
         usuario     : String!
         correo      : String!
@@ -22,7 +23,7 @@ const usuariosTypeDefs = gql(`
         password    : String!
         is_staff    : String
     }
-    type UsuarioDetalles {
+    type UsuarioOut {
         id              : Int!
         nombre          : String!
         usuario         : String!
@@ -36,12 +37,13 @@ const usuariosTypeDefs = gql(`
     type Mutation {
         logIn               (credenciales   : CredencialesInp!)                      : Token!
         actualizarToken     (tActualizacion : String!)                               : TAcceso!
-        registrarUsuario    (registroInput  : RegistroInp!)                          : Token!
-        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: RegistroInp!): UsuarioDetalles!
+        registrarUsuario    (registroInput  : UsuarioIn!  )                          : Token!
+        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioIn!  ): UsuarioOut!
         eliminarUsuario     (idUsuario      : Int!)                                  : Int
     }
     type Query {
-        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioDetalles!
-        listaUsuarios                                           : [UsuarioDetalles!]!
+        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!
+        listaUsuarios                                           : [UsuarioOut!]!
     }`);
+
 module.exports = usuariosTypeDefs;
