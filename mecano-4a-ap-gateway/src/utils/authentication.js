@@ -14,7 +14,7 @@ const authentication = async ({ req }) => {
         };
 
         let response = await fetch(
-            `${serverConfig.mecano_4a_be_usuarios_main}/verifyToken/`,
+            `${serverConfig.auth_api_url}/verifyToken/`,
             requestOptions)
         if (response.status != 200) {
             console.log(response)
