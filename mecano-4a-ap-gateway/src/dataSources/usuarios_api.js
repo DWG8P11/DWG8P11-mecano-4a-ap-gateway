@@ -3,7 +3,7 @@ const serverConfig = require('../server');
 class UsuariosAPI extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = serverConfig.auth_api_url;
+        this.baseURL = serverConfig.mecano_4a_be_usuarios_url;
     }
     async createUser(user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
