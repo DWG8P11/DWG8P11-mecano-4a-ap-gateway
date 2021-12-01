@@ -32,4 +32,4 @@ class UsuariosAPI extends RESTDataSource {
     }
 
 }
-module.exports = AuthAPI;
+module.exports = UsuariosAPI;
