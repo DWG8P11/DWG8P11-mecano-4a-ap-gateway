@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server');
-const authTypeDefs = gql `
+
+const usuariosTypeDefs = gql(`
     type Token {
         refresh : String!
         access  : String!
@@ -11,7 +12,7 @@ const authTypeDefs = gql `
         username: String!
         password: String!
     }
-    input RegistroInp {
+    input UsuarioIn {
         nombre      : String!
         usuario     : String!
         correo      : String!
@@ -22,23 +23,27 @@ const authTypeDefs = gql `
         password    : String!
         is_staff    : String
     }
-    type UsuarioDetalles {
+    type UsuarioOut {
         id              : Int!
         nombre          : String!
         usuario         : String!
         correo          : String!
         telefono        : Int!
-        pais            : String
-        departamento    : String
-        ciudad          : String
-        administrador   : String
+        pais            : String!
+        departamento    : String!
+        ciudad          : String!
+        administrador   : String!
     }
     type Mutation {
-        registrarUsuario    (registroInput  : RegistroInp!)     : Token!
-        logIn               (credenciales   : CredencialesInp!) : Token!
-        actualizacionToken  (tActualizacion : String!)          : TAcceso!
+        logIn               (credenciales   : CredencialesInp!)                      : Token!
+        actualizarToken     (tActualizacion : String!)                               : TAcceso!
+        registrarUsuario    (registroInput  : UsuarioIn!  )                          : Token!
+        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioIn!  ): UsuarioOut!
+        eliminarUsuario     (idUsuario      : Int!)                                  : Int
     }
     type Query {
-        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioDetalle!
-    }`;
+        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!
+        listaUsuarios                                           : [UsuarioOut!]!
+    }`);
+
 module.exports = usuariosTypeDefs;
