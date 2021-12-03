@@ -14,11 +14,11 @@ const nivelesResolvers = {
 
         },
 
-        actualizarNiveles: async function(_, {idNivelViejo, actualizacionInput}, context) {
+        actualizarNivel: async function(_, {idNivelViejo, actualizacionInput}, context) {
 
         },
 
-        eliminarNivels: async function(_, {idNivel}, context) {
+        eliminarNivel: async function(_, {idNivel}, context) {
 
         },
     }

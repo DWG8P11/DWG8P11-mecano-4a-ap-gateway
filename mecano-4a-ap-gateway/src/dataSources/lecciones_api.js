@@ -19,8 +19,8 @@ class LeccionesAPI extends RESTDataSource {
         return await this.get(`/aprende/lecciones/${idLeccion}`);
     }
 
-    async traertodasLecciones(nivel) {
-        return await this.get(`/aprende/lecciones/`,{nivel=nro_nivel});
+    async traertodasLecciones(nro_nivel) {
+        return await this.get(`/aprende/lecciones/`,{nivel:nro_nivel});
     }
 
     async actualizarLeccion(nivelViejo, nLeccionViejo,leccionNueva) {

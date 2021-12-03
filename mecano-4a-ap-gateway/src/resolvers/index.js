@@ -1,7 +1,7 @@
-const usuariosResolvers = require('./usuarios_resolvers');
-const nivelesResolvers = require('./niveles_resolvers');
+const usuariosResolvers  = require('./usuarios_resolvers');
+const nivelesResolvers   = require('./niveles_resolvers');
 const leccionesResolvers = require('./lecciones_resolvers');
-const puntajesResolvers = require('./puntajes_resolvers');
+const puntajesResolvers  = require('./puntajes_resolvers');
 
 const lodash = require('lodash');
 
