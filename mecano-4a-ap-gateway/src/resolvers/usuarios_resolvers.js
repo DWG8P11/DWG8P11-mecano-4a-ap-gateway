@@ -14,3 +14,5 @@ const usuariosResolvers = {
 
     }
 }
+
+module.exports = usuariosResolvers
