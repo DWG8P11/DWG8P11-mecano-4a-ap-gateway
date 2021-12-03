@@ -14,23 +14,23 @@ const usuariosResolvers = {
 
     Mutation: {
         logIn: async function(_, {credenciales}, context) {
-            return context.dataSources.usuariosApi.authRequest(credenciales);
+            return context.dataSources.usuariosAPI.authRequest(credenciales);
         },
 
         actualizarToken: async function(_, {tActualizacion}, context) {
-            return context.dataSources.usuariosApi.refreshToken(tActualizacion);
+            return context.dataSources.usuariosAPI.refreshToken(tActualizacion);
         },
 
         registrarUsuario: async function(_, {registroInput}, context) {
-            return context.dataSources.usuariosApi.createUser(registroInput);
+            return context.dataSources.usuariosAPI.createUser(registroInput);
         },
 
-        actualizarUsuarios: async function(_, {idUsuario, actualizacionInput}, context) {
-            return context.dataSources.usuariosApi.update(idUsuario, actualizacionInput);
+        actualizarUsuario: async function(_, {idUsuario, actualizacionInput}, context) {
+            return context.dataSources.usuariosAPI.update(idUsuario, actualizacionInput);
         },
 
-        eliminarUsuarios: async function(_, {idUsuario}, context) {
-            return context.dataSources.usuariosApi.delete(idUsuario);
+        eliminarUsuario: async function(_, {idUsuario}, context) {
+            return context.dataSources.usuariosAPI.delete(idUsuario);
         }
     }
 }
