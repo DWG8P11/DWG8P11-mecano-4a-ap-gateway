@@ -26,10 +26,11 @@ const authentication = async ({ req }) => {
                             usuario: (await response.json()).usuario,
                             es_administrador: (await response.json()).es_administrador
                         } };
-    }
-    catch (error) {
-        throw new ApolloError(`TOKEN ERROR: ${500}: ${error}`, 500);
-    }
+        }
+        
+        catch (error) {
+            throw new ApolloError(`TOKEN ERROR: ${500}: ${error}`, 500);
+        }
     }
 }
 module.exports = authentication;
