@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 // TODO Fecha...
 const puntajesTypeDefs = gql(`
-    type PuntajeIn {
+    input PuntajeIn {
         usuario     : String!
         id_leccion  : String!
         precision   : Float!

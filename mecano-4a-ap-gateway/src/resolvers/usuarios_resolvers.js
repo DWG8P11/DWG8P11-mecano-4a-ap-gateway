@@ -24,11 +24,11 @@ const usuariosResolvers = {
 
         },
 
-        actualizarUsuarios: async function(_, {idUsuario, actualizacionInput}, context) {
+        actualizarUsuario: async function(_, {idUsuario, actualizacionInput}, context) {
 
         },
 
-        eliminarUsuarios: async function(_, {idUsuario}, context) {
+        eliminarUsuario: async function(_, {idUsuario}, context) {
 
         }
     }
