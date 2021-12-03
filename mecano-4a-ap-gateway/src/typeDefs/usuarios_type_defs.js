@@ -16,7 +16,7 @@ const usuariosTypeDefs = gql(`
         nombre      : String!
         usuario     : String!
         correo      : String!
-        telefono    : Int
+        telefono    : Float
         pais        : String
         departamento: String
         ciudad      : String
@@ -28,7 +28,7 @@ const usuariosTypeDefs = gql(`
         nombre          : String!
         usuario         : String!
         correo          : String!
-        telefono        : Int!
+        telefono        : Float!
         pais            : String!
         departamento    : String!
         ciudad          : String!
@@ -42,7 +42,7 @@ const usuariosTypeDefs = gql(`
         eliminarUsuario     (idUsuario      : Int!)                                 : Int
     }
     type Query {
-        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!
+        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut
         listaUsuarios                                           : [UsuarioOut!]!
     }`);
 

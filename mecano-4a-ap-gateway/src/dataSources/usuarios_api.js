@@ -10,8 +10,8 @@ class UsuariosAPI extends RESTDataSource {
         return await this.post(`/user/`, user);
     }
     async getUser(userId) {
-
-        return await this.get(`/user/${userId}/`);
+        console.log("En getUser (datasources) Token ", this.context.token)
+        return await this.get(`/user/${userId}/`, {}, {headers: {Authorization: `Bearer ${this.context.token}`}});
     }
     async authRequest(credentials) {
         credentials = new Object(JSON.parse(JSON.stringify(credentials)));

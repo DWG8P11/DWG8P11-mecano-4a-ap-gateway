@@ -1,8 +1,15 @@
+const { ApolloError } = require("apollo-server-errors");
+
 const usuariosResolvers = {
     Query: {
         detallesUsuarioPorId: async function(_, {idUsuario}, context) {
-            if (idsuario == context.userT.id) {
-                return context.dataSources.UsuariosAPI.getUser(idUsuario);
+            console.log("En detallesUsuarioPorId. Contexto: token y userT", context)
+            if (!context.usuarioT){
+                throw new ApolloError("Acceso No Autorizado", 401)
+            }
+
+            if (idUsuario == context.usuarioT.id) {
+                return context.dataSources.usuariosAPI.getUser(idUsuario);
             }
         },
 
