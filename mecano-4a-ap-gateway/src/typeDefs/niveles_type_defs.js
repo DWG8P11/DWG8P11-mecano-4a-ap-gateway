@@ -16,7 +16,7 @@ const nivelesTypeDefs = gql(`
     }
 
     extend type Mutation {
-        crearNivel      (nivel          : Nivel!                    )   : Nivel!
+        registrarNivel  (nivel          : Nivel!                    )   : Nivel!
         actualizarNivel (idNivelViejo   : Int!, nivelNuevo: Nivel!  )   : Nivel!
         eliminarNivel   (idNivel        : Int!                      )   : Int
     }

@@ -36,17 +36,18 @@ const leccionesTypeDefs = gql(`
     }
 
     extend type Query {
-        traerLecciones      (nivel      : Int                   ): [LeccionOut!]!
-        traerLeccionPorId   (idLeccion  : String!               ): LeccionOut!
-        traerLeccionPorNivel(nivel      : Int!, nLeccion: Int!  ): LeccionOut!
+        traerLecciones                  (nivel      : Int                   ): [LeccionOut!]!
+        traerLeccionPorId               (idLeccion  : String!               ): LeccionOut!
+        traerLeccionesPorNivel          (nivel      : Int!                  ): [LeccionOut!]
+        traerLeccionPorNivelYLeccion    (nivel      : Int!, nLeccion: Int!  ): LeccionOut!
     }
 
     extend type Mutation {
-        crearLeccion                (leccion    : LeccionIn!                                                ): LeccionOut!
-        actualizarLeccionPorNivel   (nivelViejo : Int!      , nLeccionViejo : Int!, leccionNueva: LeccionIn!): LeccionOut!
-        actualizarLeccionPorId      (idLeccion  : String!   , leccionNueva  : LeccionIn!                    ): LeccionOut!
-        eliminarLeccionPorNivel     (nivel      : Int!      , nLeccion      : Int!                          ): Int
-        eliminarLeccionPorId        (idLeccion  : String!                                                   ): Int
+        crearLeccion                        (leccion    : LeccionIn!                                                ): LeccionOut!
+        actualizarLeccionPorNivelYLeccion   (nivelViejo : Int!      , nLeccionViejo : Int!, leccionNueva: LeccionIn!): LeccionOut!
+        actualizarLeccionPorId              (idLeccion  : String!   , leccionNueva  : LeccionIn!                    ): LeccionOut!
+        eliminarLeccionPorNivelYLeccion     (nivel      : Int!      , nLeccion      : Int!                          ): Int
+        eliminarLeccionPorId                (idLeccion  : String!                                                   ): Int
     }
 `);
 
