@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const authentication = async ({ req }) => {
     const token = req.headers.authorization || '';
     if (token == '')
-        return { userIdToken: null }
+        return { userT: null }
     else {
         try {
         let requestOptions = {
@@ -14,14 +14,18 @@ const authentication = async ({ req }) => {
         };
 
         let response = await fetch(
-            `${serverConfig.auth_api_url}/verifyToken/`,
+            `${serverConfig.mecano_4a_be_usuarios_url}/verifyToken/`,
             requestOptions)
         if (response.status != 200) {
-            console.log(response)
-            throw new ApolloError(`SESION INACTIVA - ${401}` + response.status, 401)
+            // throw new ApolloError(`SESION INACTIVA - ${401}` + response.status, 401)
+            return { userT: null }
         }
 
-        return { userIdToken: (await response.json()).UserId };
+        return { userT: {
+                            id: (await response.json()).UserId,
+                            usuario: (await response.json()).usuario,
+                            es_administrador: (await response.json()).es_administrador
+                        } };
     }
     catch (error) {
         throw new ApolloError(`TOKEN ERROR: ${500}: ${error}`, 500);
