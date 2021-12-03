@@ -16,7 +16,7 @@ const usuariosTypeDefs = gql(`
         nombre      : String!
         usuario     : String!
         correo      : String!
-        telefono    : Int!
+        telefono    : Int
         pais        : String
         departamento: String
         ciudad      : String
@@ -36,10 +36,10 @@ const usuariosTypeDefs = gql(`
     }
     type Mutation {
         logIn               (credenciales   : CredencialesIn!)                      : Token!
-        actualizarToken     (tActualizacion : String!)                               : TAcceso!
-        registrarUsuario    (registroInput  : UsuarioIn!  )                          : Token!
-        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioIn!  ): UsuarioOut!
-        eliminarUsuario     (idUsuario      : Int!)                                  : Int
+        actualizarToken     (tActualizacion : String!)                              : TAcceso!
+        registrarUsuario    (registroInput  : UsuarioIn!  )                         : Token!
+        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioIn!) : UsuarioOut!
+        eliminarUsuario     (idUsuario      : Int!)                                 : Int
     }
     type Query {
         detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!
