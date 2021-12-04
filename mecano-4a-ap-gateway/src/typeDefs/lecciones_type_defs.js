@@ -46,8 +46,8 @@ const leccionesTypeDefs = gql(`
         crearLeccion                        (leccion    : LeccionIn!                                                ): LeccionOut!
         actualizarLeccionPorNivelYLeccion   (nivelViejo : Int!      , nLeccionViejo : Int!, leccionNueva: LeccionIn!): LeccionOut!
         actualizarLeccionPorId              (idLeccion  : String!   , leccionNueva  : LeccionIn!                    ): LeccionOut!
-        eliminarLeccionPorNivelYLeccion     (nivel      : Int!      , nLeccion      : Int!                          ): Int
-        eliminarLeccionPorId                (idLeccion  : String!                                                   ): Int
+        eliminarLeccionPorNivelYLeccion     (nivel      : Int!      , nLeccion      : Int!                          ): String
+        eliminarLeccionPorId                (idLeccion  : String!                                                   ): String
     }
 `);
 

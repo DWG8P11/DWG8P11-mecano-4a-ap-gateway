@@ -29,8 +29,8 @@ const puntajesTypeDefs = gql(`
 
     extend type Mutation {
         crearPuntaje    (puntaje    : PuntajeIn!                ): PuntajeOut!
-        eliminarPuntaje (idPuntaje  : String!                   ): Int
-        eliminarPuntajes(usuario    : String, idLeccion: String ): Int
+        eliminarPuntaje (idPuntaje  : String!                   ): String
+        eliminarPuntajes(usuario    : String, idLeccion: String ): String
     }
 `);
 
