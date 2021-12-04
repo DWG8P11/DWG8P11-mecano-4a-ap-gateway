@@ -23,12 +23,12 @@ class UsuariosAPI extends RESTDataSource {
     }
 
     async delete(userId) {
-        return await this.delete(`/delete/${userId}/`);
+        return await this.delete(`/delete/${userId}/`, {}, {headers: {Authorization: `Bearer ${this.context.token}`}});
     }
 
     async update(userId,user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
-        return await this.update(`/update/${userId}/`, user);
+        return await this.patch(`/update/${userId}/`, user, {headers: {Authorization: `Bearer ${this.context.token}`}});
     }
 
 }
