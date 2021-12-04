@@ -13,10 +13,10 @@ const usuariosTypeDefs = gql(`
         password: String!
     }
     input UsuarioIn {
-        nombre      : String
+        nombre      : String!
         usuario     : String!
         correo      : String!
-        telefono    : Float
+        telefono    : Float!
         pais        : String
         departamento: String
         ciudad      : String

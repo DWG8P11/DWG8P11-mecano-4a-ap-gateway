@@ -39,8 +39,12 @@ const usuariosResolvers = {
         },
 
         registrarUsuario: async function(_, {registroInput}, context) {
-            // TODO Confirmar que si el usuario a crear es administrador, entonces la persona autenticada es administradora
-            console.log("Tipo de dato registroInput", typeof(registroInput), registroInput)
+            // Error: si se está tratando de registrar un usuario administrador
+            //        desde una cuenta no administradora
+            if (registroInput.is_staff && (!context.usuarioT || !context.usuarioT.es_administrador)) {
+                throw new ApolloError("No autorizado. Para crear una cuenta \
+                adminsitradora debe estar autenticado desde una cuenta administradora.", 401);
+            }
             return context.dataSources.usuariosAPI.createUser(registroInput);
         },
 
