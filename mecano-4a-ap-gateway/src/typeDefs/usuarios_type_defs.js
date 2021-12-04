@@ -42,7 +42,8 @@ const usuariosTypeDefs = gql(`
         eliminarUsuario     (idUsuario      : Int!)                                 : Int
     }
     type Query {
-        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut
+        detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!
+        detallesUsuarioAutenticado                              : UsuarioOut
         listaUsuarios                                           : [UsuarioOut!]!
     }`);
 
