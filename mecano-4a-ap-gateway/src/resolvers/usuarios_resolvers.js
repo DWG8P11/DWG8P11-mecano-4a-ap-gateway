@@ -71,9 +71,24 @@ const usuariosResolvers = {
         // TODO Actualizar usuario autenticado?
 
         eliminarUsuario: async function(_, {idUsuario}, context) {
-            // TODO Solo permitir que se borre mi propio usuario, o si soy administrador cualquier otro usuario que no sea administrador
             // TODO Eliminar todos los puntajes de este usuario?
-            return context.dataSources.usuariosAPI.delete(idUsuario);
+            // Error: no autenticado
+            if (!context.usuarioT){
+                throw new ApolloError("No autenticado. Modificación no autorizada", 401)
+            }
+
+            // Permitir: si el usuario autenticado es el que se desea afectar
+            if (idUsuario == context.usuarioT.id) {
+                return context.dataSources.usuariosAPI.delete(idUsuario);
+            }
+            
+            // Permitir: si el usuario autenticado es administrador y 
+            //           no se va a afectar a otro usuario administrador
+            if (context.usuarioT.es_administrador && !(await context.dataSources.usuariosAPI.getUser(idUsuario)).administrador) {
+                return context.dataSources.usuariosAPI.delete(idUsuario);
+            }
+
+            throw new ApolloError("Modificación no autorizada", 401);
         }
     }
 }
