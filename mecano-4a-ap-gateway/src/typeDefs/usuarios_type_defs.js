@@ -13,7 +13,7 @@ const usuariosTypeDefs = gql(`
         password: String!
     }
     input UsuarioIn {
-        nombre      : String!
+        nombre      : String
         usuario     : String!
         correo      : String!
         telefono    : Float
@@ -21,6 +21,17 @@ const usuariosTypeDefs = gql(`
         departamento: String
         ciudad      : String
         password    : String!
+        is_staff    : String
+    }
+    input UsuarioAct {
+        nombre      : String
+        usuario     : String
+        correo      : String
+        telefono    : Float
+        pais        : String
+        departamento: String
+        ciudad      : String
+        password    : String
         is_staff    : String
     }
     type UsuarioOut {
@@ -38,12 +49,12 @@ const usuariosTypeDefs = gql(`
         logIn               (credenciales   : CredencialesIn!)                      : Token!
         actualizarToken     (tActualizacion : String!)                              : TAcceso!
         registrarUsuario    (registroInput  : UsuarioIn!  )                         : Token!
-        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioIn!) : UsuarioOut!
+        actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioAct!): UsuarioOut!
         eliminarUsuario     (idUsuario      : Int!)                                 : Int
     }
     type Query {
         detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!
-        detallesUsuarioAutenticado                              : UsuarioOut
+        detallesUsuarioAutenticado                              : UsuarioOut!
         listaUsuarios                                           : [UsuarioOut!]!
     }`);
 
