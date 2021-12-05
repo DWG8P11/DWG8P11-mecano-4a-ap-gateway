@@ -35,15 +35,15 @@ const usuariosTypeDefs = gql(`
         is_staff    : String
     }
     type UsuarioOut {
-        id              : Int!
-        nombre          : String!
-        usuario         : String!
-        correo          : String!
-        telefono        : Float!
-        pais            : String!
-        departamento    : String!
-        ciudad          : String!
-        administrador   : String!
+        id              : Int
+        nombre          : String
+        usuario         : String
+        correo          : String
+        telefono        : Float
+        pais            : String
+        departamento    : String
+        ciudad          : String
+        administrador   : String
     }
     type Mutation {
         logIn               (credenciales   : CredencialesIn!)                      : Token!

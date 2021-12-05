@@ -12,10 +12,10 @@ const nivelesTypeDefs = gql(`
     }
 
     type NivelOut {
-        id          : Int!
-        nombre      : String!
-        descripcion : String!
-        imagen      : String!
+        id          : Int
+        nombre      : String
+        descripcion : String
+        imagen      : String
     }
 
     extend type Query {

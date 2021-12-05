@@ -19,20 +19,20 @@ const leccionesTypeDefs = gql(`
     }
 
     type LeccionOut {
-        id              : String!
-        titulo          : String!
-        nivel           : Int!
-        n_leccion       : Int!
-        texto           : String!
-        teclas          : [String!]!
-        imagen          : String!
-        mini1           : Int!
-        mini2           : Int!
-        mini3           : Int!
-        mini4           : Int!
-        ignorarMayus    : Boolean!
-        ignorarTildes   : Boolean!
-        ignorarDieres   : Boolean!
+        id              : String
+        titulo          : String
+        nivel           : Int
+        n_leccion       : Int
+        texto           : String
+        teclas          : [String]
+        imagen          : String
+        mini1           : Int
+        mini2           : Int
+        mini3           : Int
+        mini4           : Int
+        ignorarMayus    : Boolean
+        ignorarTildes   : Boolean
+        ignorarDieres   : Boolean
     }
 
     extend type Query {
