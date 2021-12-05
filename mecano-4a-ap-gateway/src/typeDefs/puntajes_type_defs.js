@@ -4,20 +4,20 @@ const { gql } = require('apollo-server');
 const puntajesTypeDefs = gql(`
     input PuntajeIn {
         usuario     : String!
-        id_leccion  : String!
+        leccionId   : String!
         precision   : Float!
-        cpme        : Int!
+        cpm_e       : Int!
         segundos    : Int!
         fecha       : String
     }
 
     type PuntajeOut {
-        id          : String!
-        usuario     : String!
-        id_leccion  : String!
-        precision   : Float!
-        cpme        : Int!
-        segundos    : Int!
+        id          : String
+        usuario     : String
+        leccionId   : String
+        precision   : Float
+        cpm_e       : Int
+        segundos    : Int
         fecha       : String
     }
 
@@ -30,7 +30,7 @@ const puntajesTypeDefs = gql(`
     extend type Mutation {
         crearPuntaje    (puntaje    : PuntajeIn!                ): PuntajeOut!
         eliminarPuntaje (idPuntaje  : String!                   ): String
-        eliminarPuntajes(usuario    : String, idLeccion: String ): String
+        eliminarPuntajes(usuario    : String, idLeccion: String ): [String!]!
     }
 `);
 
