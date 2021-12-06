@@ -23,7 +23,7 @@ const puntajesTypeDefs = gql(`
 
     extend type Query {
         traerPuntajes               (usuario    : String, idLeccion : String                ): [PuntajeOut!]!
-        traerPuntajesUsuarioLeccion (nivel      : Int!  , nLeccion  : Int!, usuario: String ): [PuntajeOut!]!
+        traerPuntajesNivel          (nivel      : Int!  , nLeccion  : Int,  usuario: String ): [PuntajeOut!]!
         traerPuntaje                (idPuntaje  : String!                                   ): PuntajeOut!
     }
 

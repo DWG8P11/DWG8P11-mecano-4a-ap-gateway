@@ -11,7 +11,8 @@ class PuntajesAPI extends RESTDataSource {
         return await this.post(`/aprende/puntajes`, puntaje);
     }
 
-    async traerPuntajes(nombre_usuario,id_leccion) {
+    async traerPuntajes(nombre_usuario = null, id_leccion = null) {
+        console.log("traerPutajes usuario = ", nombre_usuario, "id_leccion =", id_leccion, "fin");
         let paramsPeticion = {}
 
         if (nombre_usuario) {
@@ -37,7 +38,7 @@ class PuntajesAPI extends RESTDataSource {
         return await this.delete(`/aprende/puntajes/${idPuntaje}/`);
     }
 
-    async borrarPuntajes(nombre_usuario, id_leccion) {
+    async borrarPuntajes(nombre_usuario = null, id_leccion = null) {
         let paramsPeticion = {}
 
         if (nombre_usuario) {
@@ -48,7 +49,7 @@ class PuntajesAPI extends RESTDataSource {
             paramsPeticion.idLeccion = id_leccion;
         }
         
-        return await this.delete(`/aprende/puntajes/`,{usuario: nombre_usuario, idLeccion: id_leccion});
+        return await this.delete(`/aprende/puntajes/`, paramsPeticion);
     }
 
     
