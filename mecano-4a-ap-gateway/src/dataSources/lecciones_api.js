@@ -19,20 +19,29 @@ class LeccionesAPI extends RESTDataSource {
         return await this.get(`/aprende/lecciones/${idLeccion}`);
     }
 
-    async traertodasLecciones(nro_nivel) {
-        return await this.get(`/aprende/lecciones/`,{nivel:nro_nivel});
+    async traertodasLecciones(nro_nivel = null) {
+        let requestParams = {}
+        if (nro_nivel)
+            requestParams = {nivel:nro_nivel}
+
+        return await this.get(`/aprende/lecciones/`, requestParams);
     }
 
     async actualizarLeccion(nivelViejo, nLeccionViejo,leccionNueva) {
         leccionNueva = new Object(JSON.parse(JSON.stringify(leccionNueva)));
-        return await this.put(`/aprende/lecciones/${nivelViejo}/${nLeccionViejo}`,leccionNueva);
+        return await this.put(`/aprende/lecciones/${nivelViejo}/${nLeccionViejo}`, leccionNueva);
+    }
+
+    async actualizarLeccionPorId(idLeccion, leccionNueva) {
+        leccionNueva = new Object(JSON.parse(JSON.stringify(leccionNueva)));
+        return await this.put(`/aprende/lecciones/${idLeccion}`, leccionNueva);
     }
 
     async borrarLeccion_sin_detalle(nivel,nLeccion) {
         return await this.delete(`/aprende/lecciones/${nivel}/${nLeccion}`);
     }
 
-    async borrarLeccion(idLeccion) {
+    async borrarLeccionPorId(idLeccion) {
         return await this.delete(`/aprende/lecciones/${idLeccion}`);
     }
    

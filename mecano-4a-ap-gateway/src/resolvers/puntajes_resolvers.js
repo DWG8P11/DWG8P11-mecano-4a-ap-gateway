@@ -25,7 +25,7 @@ const puntajesResolvers = {
             
             // Si no hay leccion especificada
             // Traer los puntajes en cada leccion del nivel. 
-            // Alternativa 1: Hacer peticiones por cada leccion del nivel
+            // Alternativa 1: Hacer peticiones de puntaje por cada leccion del nivel
             let leccionesNivel = await contexto.dataSources.leccionesAPI.traertodasLecciones(nivel);
 
             // Hacer las peticiones y guardar las promesas en un array
