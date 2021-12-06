@@ -5,27 +5,35 @@ const fetch = require('node-fetch');
 const authentication = async ({ req }) => {
     const token = req.headers.authorization || '';
     if (token == '')
-        return { userIdToken: null }
-    else {
+        return { usuarioT: null }
+    else { // Hay un token
         try {
-        let requestOptions = {
-            method: 'POST', headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ token }), redirect: 'follow'
-        };
+            let requestOptions = {
+                method: 'POST', headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({token: token.substring(7)}), redirect: 'follow'
+            };
 
-        let response = await fetch(
-            `${serverConfig.auth_api_url}/verifyToken/`,
-            requestOptions)
-        if (response.status != 200) {
-            console.log(response)
-            throw new ApolloError(`SESION INACTIVA - ${401}` + response.status, 401)
+            let response = await fetch(`${serverConfig.mecano_4a_be_usuarios_url}/verifyToken/`,
+                requestOptions) // De tipo objeto
+
+            let response_body = (await response.json()) // El cuerpo de la respuesta
+
+            if (response.status != 200) {
+                // throw new ApolloError(`SESION INACTIVA - ${401}` + response.status, 401)
+                return { usuarioT: null, token: token.substring(7)}
+            }
+
+            return {usuarioT: {
+                            id: response_body.UserId,
+                            usuario: response_body.usuario,
+                            es_administrador: response_body.es_administrador
+                        },
+                    token: token.substring(7)
+                    };
         }
-
-        return { userIdToken: (await response.json()).UserId };
-    }
-    catch (error) {
-        throw new ApolloError(`TOKEN ERROR: ${500}: ${error}`, 500);
-    }
+        catch (error) {
+            throw new ApolloError(`TOKEN ERROR: ${500}: ${error}`, 500);
+        }
     }
 }
 module.exports = authentication;

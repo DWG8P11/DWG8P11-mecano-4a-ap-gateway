@@ -8,7 +8,7 @@ class NivelesAPI extends RESTDataSource {
 
     async registroNuevoNivel(nuevoNivel) {
         nuevoNivel = new Object(JSON.parse(JSON.stringify(nuevoNivel)));
-        return await this.post(`/aprende/niveles`,nuevoNivel);
+        return await this.post(`/aprende/niveles`, nuevoNivel);
     }
 
     async traerNiveles() {
