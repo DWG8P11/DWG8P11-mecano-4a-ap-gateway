@@ -9,10 +9,15 @@ const nivelesResolvers = {
         traerNiveles: async function(_, __, contexto) {
             return contexto.dataSources.nivelesAPI.traerNiveles();
         },
+
+        traerNivelesLigeros: async function(_, __, contexto) {
+            return contexto.dataSources.nivelesAPI.traerNivelesLigeros();
+        },
     },
 
     Mutation: {
         registrarNivel: async function(_, {nivel}, contexto) {
+            console.log("Tratando de registrar el siguiente nivel", nivel);
             if (!contexto.usuarioT || !contexto.usuarioT.es_administrador) {
                 throw new ApolloError("No tienes los permisos para crear un nuevo nivel.", 401)
             }
