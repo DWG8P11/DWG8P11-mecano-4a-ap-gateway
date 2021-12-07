@@ -37,6 +37,7 @@ const leccionesTypeDefs = gql(`
 
     extend type Query {
         traerLecciones                  (nivel      : Int                   ): [LeccionOut!]!
+        traerLeccionesLigeras           (nivel      : Int                   ): [LeccionOut!]!
         traerLeccionPorId               (idLeccion  : String!               ): LeccionOut!
         traerLeccionPorNivelYLeccion    (nivel      : Int!, nLeccion: Int!  ): LeccionOut!
     }

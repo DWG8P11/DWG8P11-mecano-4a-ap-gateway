@@ -7,6 +7,11 @@ const leccionesResolvers = {
             return contexto.dataSources.leccionesAPI.traertodasLecciones(nivel);
         },
 
+        traerLeccionesLigeras: async function(_, {nivel}, contexto) {
+            // nivel es opcional
+            return contexto.dataSources.leccionesAPI.traertodasLeccionesLigeras(nivel);
+        },
+
         traerLeccionPorId: async function(_, {idLeccion}, contexto) {
             return contexto.dataSources.leccionesAPI.traerLeccionPorId(idLeccion);
         },
