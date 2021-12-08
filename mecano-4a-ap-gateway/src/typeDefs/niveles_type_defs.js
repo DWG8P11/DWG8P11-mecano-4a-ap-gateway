@@ -20,6 +20,7 @@ const nivelesTypeDefs = gql(`
 
     extend type Query {
         traerNiveles                : [NivelOut!]!
+        traerNivelesLigeros         : [NivelOut!]!
         traerNivel  (idNivel: Int!) : NivelOut!
     }
 

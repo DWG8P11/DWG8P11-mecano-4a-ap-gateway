@@ -21,7 +21,7 @@ const usuariosTypeDefs = gql(`
         departamento: String
         ciudad      : String
         password    : String!
-        is_staff    : String
+        is_staff    : Boolean
     }
     input UsuarioAct {
         nombre      : String
@@ -32,7 +32,7 @@ const usuariosTypeDefs = gql(`
         departamento: String
         ciudad      : String
         password    : String
-        is_staff    : String
+        is_staff    : Boolean
     }
     type UsuarioOut {
         id              : Int
@@ -43,7 +43,7 @@ const usuariosTypeDefs = gql(`
         pais            : String
         departamento    : String
         ciudad          : String
-        administrador   : String
+        administrador   : Boolean
     }
     type Mutation {
         logIn               (credenciales   : CredencialesIn!)                      : Token!

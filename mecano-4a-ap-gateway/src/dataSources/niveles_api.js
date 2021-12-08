@@ -15,6 +15,10 @@ class NivelesAPI extends RESTDataSource {
         return await this.get(`/aprende/niveles`);
     }
 
+    async traerNivelesLigeros() {
+        return await this.get(`/aprende/niveles-ligeros`);
+    }
+
     async traerNivel(id) {
         return await this.get(`/aprende/niveles/${id}`);
     }
