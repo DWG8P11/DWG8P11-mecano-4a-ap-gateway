@@ -7,7 +7,7 @@ const puntajesTypeDefs = gql(`
         leccionId   : String!
         precision   : Float!
         cpm_e       : Int!
-        segundos    : Int!
+        segundos    : Float!
         fecha       : String
     }
 
@@ -17,7 +17,7 @@ const puntajesTypeDefs = gql(`
         leccionId   : String
         precision   : Float
         cpm_e       : Int
-        segundos    : Int
+        segundos    : Float
         fecha       : String
     }
 
