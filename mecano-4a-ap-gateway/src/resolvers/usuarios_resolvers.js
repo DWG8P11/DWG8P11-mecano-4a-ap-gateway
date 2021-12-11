@@ -20,7 +20,7 @@ const usuariosResolvers = {
             }
 
             // return this.detallesUsuarioPorId(_, {idUsuario: context.usuarioT.id}, context); // Esto funciona
-            return context.dataSources.usuariosAPI.getUser(idUsuario);
+            return context.dataSources.usuariosAPI.getUser(context.usuarioT.id);
         },
 
         listaUsuarios: async function(_, __, context) {
