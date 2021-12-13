@@ -6,6 +6,10 @@ class PuntajesAPI extends RESTDataSource {
         this.baseURL = serverConfig.mecano_4a_be_puntajes_url;
     }
 
+    async tocarMicroservicio() {
+        try{return await this.get(`/`)} catch(error) {};
+    }
+
     async registrarPuntaje(puntaje) {
         puntaje = new Object(JSON.parse(JSON.stringify(puntaje)));
         return await this.post(`/aprende/puntajes`, puntaje);

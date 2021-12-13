@@ -5,6 +5,11 @@ class UsuariosAPI extends RESTDataSource {
         super();
         this.baseURL = serverConfig.mecano_4a_be_usuarios_url;
     }
+
+    async tocarMicroservicio() {
+        try{return await this.get(`/`)} catch(error) {};
+    }
+
     async createUser(user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
         return await this.post(`/user/`, user);
