@@ -50,7 +50,7 @@ const usuariosTypeDefs = gql(`
         actualizarToken     (tActualizacion : String!)                              : TAcceso!
         registrarUsuario    (registroInput  : UsuarioIn!  )                         : Token!
         actualizarUsuario   (idUsuario      : Int!, actualizacionInput: UsuarioAct!): UsuarioOut!
-        eliminarUsuario     (idUsuario      : Int!)                                 : Int
+        eliminarUsuario     (idUsuario      : Int!)                                 : String
     }
     type Query {
         detallesUsuarioPorId(idUsuario      : Int!)             : UsuarioOut!

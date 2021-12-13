@@ -6,6 +6,10 @@ class NivelesAPI extends RESTDataSource {
         this.baseURL = serverConfig.mecano_4a_be_niveles_url;
     }
 
+    async tocarMicroservicio() {
+        try{return await this.get(`/`)} catch(error) {};
+    }
+
     async registroNuevoNivel(nuevoNivel) {
         nuevoNivel = new Object(JSON.parse(JSON.stringify(nuevoNivel)));
         return await this.post(`/aprende/niveles`, nuevoNivel);

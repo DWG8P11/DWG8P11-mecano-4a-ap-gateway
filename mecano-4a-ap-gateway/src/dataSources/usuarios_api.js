@@ -5,12 +5,17 @@ class UsuariosAPI extends RESTDataSource {
         super();
         this.baseURL = serverConfig.mecano_4a_be_usuarios_url;
     }
+
+    async tocarMicroservicio() {
+        try{return await this.get(`/`)} catch(error) {};
+    }
+
     async createUser(user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
         return await this.post(`/user/`, user);
     }
     async getUser(userId) {
-        console.log("En getUser (datasources) Token ", this.context.token)
+        // console.log("En getUser (datasources) Token ", this.context.token)
         return await this.get(`/user/${userId}/`, {}, {headers: {Authorization: `Bearer ${this.context.token}`}});
     }
     async authRequest(credentials) {
@@ -22,7 +27,7 @@ class UsuariosAPI extends RESTDataSource {
         return await this.post(`/refresh/`, token);
     }
 
-    async delete(userId) {
+    async deleteUser(userId) {
         return await this.delete(`/delete/${userId}/`, {}, {headers: {Authorization: `Bearer ${this.context.token}`}});
     }
 

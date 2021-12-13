@@ -20,7 +20,7 @@ const usuariosResolvers = {
             }
 
             // return this.detallesUsuarioPorId(_, {idUsuario: context.usuarioT.id}, context); // Esto funciona
-            return context.dataSources.usuariosAPI.getUser(idUsuario);
+            return context.dataSources.usuariosAPI.getUser(context.usuarioT.id);
         },
 
         listaUsuarios: async function(_, __, context) {
@@ -79,13 +79,13 @@ const usuariosResolvers = {
 
             // Permitir: si el usuario autenticado es el que se desea afectar
             if (idUsuario == context.usuarioT.id) {
-                return context.dataSources.usuariosAPI.delete(idUsuario);
+                return context.dataSources.usuariosAPI.deleteUser(idUsuario);
             }
             
             // Permitir: si el usuario autenticado es administrador y 
             //           no se va a afectar a otro usuario administrador
             if (context.usuarioT.es_administrador && !(await context.dataSources.usuariosAPI.getUser(idUsuario)).administrador) {
-                return context.dataSources.usuariosAPI.delete(idUsuario);
+                return context.dataSources.usuariosAPI.deleteUser(idUsuario);
             }
 
             throw new ApolloError("Modificación no autorizada", 401);
