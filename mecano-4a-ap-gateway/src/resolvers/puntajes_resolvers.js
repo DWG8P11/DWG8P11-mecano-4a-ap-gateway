@@ -62,7 +62,7 @@ const puntajesResolvers = {
 
     Mutation: {
         crearPuntaje: async function(_, {puntaje}, contexto) {
-            if (!contexto.usuarioT || !contexto.usuarioT.es_administrador) {
+            if (!contexto.usuarioT || !(contexto.usuarioT.es_administrador || contexto.usuarioT.usuario == puntaje.usuario)) {
                 throw new ApolloError("No tienes los permisos para crear un nuevo puntaje.", 401)
             }
             return contexto.dataSources.puntajesAPI.registrarPuntaje(puntaje);
